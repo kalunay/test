@@ -1,11 +1,25 @@
-main > .container {
-    padding: 70px 15px 20px;
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #333333;
+    font-size: 14px;
+    opacity: 1; /* Firefox */
 }
 
-.footer {
-    background-color: #f5f5f5;
-    font-size: .9em;
-    height: 60px;
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: #333333;
+    font-size: 14px;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+    color: #333333;
+    font-size: 14px;
+}
+
+body {
+    background: #eceff4;
+}
+
+main > .container {
+    padding: 70px 15px 20px;
 }
 
 .footer > .container {
@@ -81,4 +95,80 @@ a.desc:after {
 
 .nav > li > form > button.logout:focus {
     outline: none;
+}
+
+.b-form,
+.b-list {
+    width: 320px;
+    background: #fff;
+    margin: auto;
+    border-radius: 3px;
+    box-shadow: 0 0 7px rgba(0,0,0, .05);
+}
+
+.b-form-header,
+.b-list-header {
+    font-size: 14px;
+    color: #333333;
+    padding: 25px;
+    border-bottom: #eeeeee solid 1px;
+}
+
+.b-form-form {
+    padding: 25px;
+}
+
+.b-form-form  form {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+}
+
+.b-form-form  form .form-group {
+    width: 100%;
+}
+
+.b-form-form  form .form-group:last-child {
+    margin-bottom: 0;
+    justify-content: right;
+    display: flex;
+}
+
+.b-form-form  form .btn.btn-primary {
+    background: #4d59a1;
+    font-size: 14px;
+    border: none;
+}
+
+.b-form-form  form input {
+    color: #333333;
+    font-size: 14px;
+}
+
+.b-list {
+    margin-top: 20px;
+}
+
+.b-list-body-item {
+    padding: 25px;
+    border-bottom: #eeeeee solid 1px;
+    font-size: 14px;
+    color: #333333;
+}
+
+.b-list-body-item:last-child {
+    border-bottom: none;
+}
+
+.b-list-body-item i {
+    font-size: 12px;
+    color: #666666;
+    font-style: normal;
+}
+
+.btn-del {
+    background: none;
+    border: none;
+    color: #333333;
+    font-size: 14px;
 }

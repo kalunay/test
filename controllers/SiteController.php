@@ -9,6 +9,7 @@ use yii\web\Response;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
+use app\models\Contacts;
 
 class SiteController extends Controller
 {
@@ -61,7 +62,32 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        $model = new Contacts();
+
+        if ($this->request->isPost) {
+            if ($model->load($this->request->post()) && $model->validate()) {
+                if($model->save()){
+                    Yii::$app->session->setFlash('success', 'Добавлено');
+                } else {
+                    Yii::$app->session->setFlash('success', 'Не добавлено');
+                }
+                return $this->refresh();
+            }    
+        }
+
+        $contacts = Contacts::find()->all();
+
+        return $this->render('index', [
+            'model' => $model,
+            'contacts' => $contacts
+        ]);
+    }
+
+    public function actionDelete($id)
+    {
+        Contacts::findOne(['id' => $id])->delete();
+
+        return $this->redirect(['index']);
     }
 
     /**
